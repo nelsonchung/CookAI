@@ -3,12 +3,14 @@
 <title>使用者輸入</title> 
 </head> 
 <body> 
+<form action="uploaduserinput.php" method="post">
 
 <font size="4">肉類</font>
 
 <br>
 豬肉
 <select name="pork">
+　<option value="pork_0">0</option>
 　<option value="pork_1">1</option>
 　<option value="pork_2">2</option>
 　<option value="pork_3">3</option>
@@ -32,6 +34,7 @@
 </select>
 魚肉
 <select name="fish">
+　<option value="fish_0">0</option>
 　<option value="fish_1">1</option>
 　<option value="fish_2">2</option>
 　<option value="fish_3">3</option>
@@ -55,6 +58,7 @@
 </select>
 雞肉
 <select name="chicken">
+　<option value="chicken_0">0</option>
 　<option value="chicken_1">1</option>
 　<option value="chicken_2">2</option>
 　<option value="chicken_3">3</option>
@@ -78,6 +82,7 @@
 </select>
 鴨肉
 <select name="duck">
+　<option value="duck_0">0</option>
 　<option value="duck_1">1</option>
 　<option value="duck_2">2</option>
 　<option value="duck_3">3</option>
@@ -102,35 +107,12 @@
 
 <br><br>
 <font size="4">青菜</font><br>
-<!--
-<select name="">
-　<option value="_1">1</option>
-　<option value="_2">2</option>
-　<option value="_3">3</option>
-　<option value="_4">4</option>
-　<option value="_5">5</option>
-　<option value="_6">6</option>
-　<option value="_7">7</option>
-　<option value="_8">8</option>
-　<option value="_9">9</option>
-　<option value="_10">10</option>
-　<option value="_11">11</option>
-　<option value="_12">12</option>
-　<option value="_13">13</option>
-　<option value="_14">14</option>
-　<option value="_15">15</option>
-　<option value="_16">16</option>
-　<option value="_17">17</option>
-　<option value="_18">18</option>
-　<option value="_19">19</option>
-　<option value="_20">20</option>
-</select>
--->
 <br>
 ==葉菜類==
 <br>
 高麗菜
 <select name="cabbage">
+　<option value="cabbage_0">0</option>
 　<option value="cabbage_1">1</option>
 　<option value="cabbage_2">2</option>
 　<option value="cabbage_3">3</option>
@@ -154,6 +136,7 @@
 </select>
 菠菜
 <select name="spinach">
+　<option value="spinach_0">0</option>
 　<option value="spinach_1">1</option>
 　<option value="spinach_2">2</option>
 　<option value="spinach_3">3</option>
@@ -177,6 +160,7 @@
 </select>
 青江菜
 <select name="ching_chiang">
+　<option value="ching_chiang_0">0</option>
 　<option value="ching_chiang_1">1</option>
 　<option value="ching_chiang_2">2</option>
 　<option value="ching_chiang_3">3</option>
@@ -200,6 +184,7 @@
 </select>
 芹菜
 <select name="celery">
+　<option value="celery_0">0</option>
 　<option value="celery_1">1</option>
 　<option value="celery_2">2</option>
 　<option value="celery_3">3</option>
@@ -223,6 +208,7 @@
 </select>
 空心菜
 <select name="con_sin">
+　<option value="con_sin_0">0</option>
 　<option value="con_sin_1">1</option>
 　<option value="con_sin_2">2</option>
 　<option value="con_sin_3">3</option>
@@ -246,6 +232,7 @@
 </select>
 大白菜
 <select name="brassica_rapa_pekinensis">
+　<option value="brassica_rapa_pekinensis_0">0</option>
 　<option value="brassica_rapa_pekinensis_1">1</option>
 　<option value="brassica_rapa_pekinensis_2">2</option>
 　<option value="brassica_rapa_pekinensis_3">3</option>
@@ -269,6 +256,7 @@
 </select>
 地瓜葉
 <select name="sweet_potato_leaves">
+　<option value="sweet_potato_leaves_0">0</option>
 　<option value="sweet_potato_leaves_1">1</option>
 　<option value="sweet_potato_leaves_2">2</option>
 　<option value="sweet_potato_leaves_3">3</option>
@@ -296,6 +284,7 @@
 <br>
 絲瓜
 <select name="loofah">
+　<option value="loofah_0">0</option>
 　<option value="loofah_1">1</option>
 　<option value="loofah_2">2</option>
 　<option value="loofah_3">3</option>
@@ -319,6 +308,7 @@
 </select>
 冬瓜
 <select name="benincasa_pruriens">
+　<option value="benincasa_pruriens_0">0</option>
 　<option value="benincasa_pruriens_1">1</option>
 　<option value="benincasa_pruriens_2">2</option>
 　<option value="benincasa_pruriens_3">3</option>
@@ -342,6 +332,7 @@
 </select>
 苦瓜
 <select name="bitter">
+　<option value="bitter_0">0</option>
 　<option value="bitter_1">1</option>
 　<option value="bitter_2">2</option>
 　<option value="bitter_3">3</option>
@@ -365,6 +356,7 @@
 </select>
 玉米
 <select name="corn">
+　<option value="corn_0">0</option>
 　<option value="corn_1">1</option>
 　<option value="corn_2">2</option>
 　<option value="corn_3">3</option>
@@ -388,6 +380,7 @@
 </select>
 秋葵
 <select name="okra">
+　<option value="okra_0">0</option>
 　<option value="okra_1">1</option>
 　<option value="okra_2">2</option>
 　<option value="okra_3">3</option>
@@ -415,6 +408,7 @@
 <br>
 玉米筍
 <select name="young_corn">
+　<option value="young_corn_0">0</option>
 　<option value="young_corn_1">1</option>
 　<option value="young_corn_2">2</option>
 　<option value="young_corn_3">3</option>
@@ -438,6 +432,7 @@
 </select>
 蘿蔔
 <select name="radish">
+　<option value="radish_0">0</option>
 　<option value="radish_1">1</option>
 　<option value="radish_2">2</option>
 　<option value="radish_3">3</option>
@@ -461,6 +456,7 @@
 </select>
 馬鈴薯
 <select name="potato">
+　<option value="potato_0">0</option>
 　<option value="potato_1">1</option>
 　<option value="potato_2">2</option>
 　<option value="potato_3">3</option>
@@ -484,6 +480,7 @@
 </select>
 紅蘿蔔
 <select name="carrot">
+　<option value="carrot_0">0</option>
 　<option value="carrot_1">1</option>
 　<option value="carrot_2">2</option>
 　<option value="carrot_3">3</option>
@@ -507,6 +504,7 @@
 </select>
 竹筍
 <select name="bamboo">
+　<option value="bamboo_0">0</option>
 　<option value="bamboo_1">1</option>
 　<option value="bamboo_2">2</option>
 　<option value="bamboo_3">3</option>
@@ -534,6 +532,7 @@
 <br>
 花椰菜
 <select name="cauliflower">
+　<option value="cauliflower_0">0</option>
 　<option value="cauliflower_1">1</option>
 　<option value="cauliflower_2">2</option>
 　<option value="cauliflower_3">3</option>
@@ -555,5 +554,36 @@
 　<option value="cauliflower_19">19</option>
 　<option value="cauliflower_20">20</option>
 </select>
+
+<br><br>
+　<input type="submit" value="送出表單">
+</form>
+
+<!--
+<select name="">
+　<option value="_0">0</option>
+　<option value="_1">1</option>
+　<option value="_2">2</option>
+　<option value="_3">3</option>
+　<option value="_4">4</option>
+　<option value="_5">5</option>
+　<option value="_6">6</option>
+　<option value="_7">7</option>
+　<option value="_8">8</option>
+　<option value="_9">9</option>
+　<option value="_10">10</option>
+　<option value="_11">11</option>
+　<option value="_12">12</option>
+　<option value="_13">13</option>
+　<option value="_14">14</option>
+　<option value="_15">15</option>
+　<option value="_16">16</option>
+　<option value="_17">17</option>
+　<option value="_18">18</option>
+　<option value="_19">19</option>
+　<option value="_20">20</option>
+</select>
+-->
+
 </body> 
 </html>
