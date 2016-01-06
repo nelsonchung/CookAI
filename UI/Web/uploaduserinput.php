@@ -20,7 +20,7 @@
     <?php echo $_POST["radish"]; ?><br>
     <?php echo $_POST["potato"]; ?><br>
     <?php echo $_POST["carrot"]; ?><br>
-    <?php echo $_POST["bamboo"]; ?><br>
+    <?php echo $_POST["bambooshoot"]; ?><br>
     <?php echo $_POST["cauliflower"]; ?><br>
     
     <?php
@@ -45,7 +45,7 @@
         $list = $list.$_POST["radish"]."\n";
         $list = $list.$_POST["potato"]."\n";
         $list = $list.$_POST["carrot"]."\n";
-        $list = $list.$_POST["bamboo"]."\n";
+        $list = $list.$_POST["bambooshoot"]."\n";
         $list = $list.$_POST["cauliflower"]."\n";
         file_put_contents($userresult, $list);
     ?>

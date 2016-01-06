@@ -19,7 +19,7 @@ chingchiang_decayrate=0.3
 #芹菜
 celery_decayrate=0.2
 #空心菜
-con_sin_decayrate=0.8
+consin_decayrate=0.8
 #大白菜
 brassicarapapekinensis_decayrate=0.5
 #地瓜葉

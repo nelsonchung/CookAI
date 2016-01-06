@@ -45,7 +45,7 @@ potato_repeatchoose=0.1
 #紅蘿蔔
 carrot_repeatchoose=0.1
 #竹筍
-bamboo_shoot_repeatchoose=0.1
+bambooshoot_repeatchoose=0.1
 ##花菜類
 #花椰菜
 cauliflower_repeatchoose=0.1
