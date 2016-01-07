@@ -2,7 +2,7 @@
 #豬肉=0
 pork_decayrate=0
 #魚肉
-fish_decayrate=0.5
+fish_decayrate=0.3
 #雞肉
 chicken_decayrate=0.1
 #鴨肉
@@ -15,9 +15,9 @@ cabbage_decayrate=0.1
 #菠菜
 spinach_decayrate=0.5
 #青江菜
-chingchiang_decayrate=0.3
+chingchiang_decayrate=0.5
 #芹菜
-celery_decayrate=0.2
+celery_decayrate=0.1
 #空心菜
 consin_decayrate=0.8
 #大白菜
