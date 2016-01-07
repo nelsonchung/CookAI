@@ -1,5 +1,6 @@
 <html>
 <body>
+    <!--
     <?php echo $_POST["pork"]; ?><br>
     <?php echo $_POST["fish"]; ?><br>
     <?php echo $_POST["chicken"]; ?><br>
@@ -22,6 +23,7 @@
     <?php echo $_POST["carrot"]; ?><br>
     <?php echo $_POST["bambooshoot"]; ?><br>
     <?php echo $_POST["cauliflower"]; ?><br>
+    -->
     
     <?php
         $userresult = 'userresult.txt';
@@ -48,6 +50,15 @@
         $list = $list.$_POST["bambooshoot"]."\n";
         $list = $list.$_POST["cauliflower"]."\n";
         file_put_contents($userresult, $list);
+    ?>
+    <?php
+    shell_exec('rm test.txt');
+    shell_exec('bash /home/ubuntu/workspace/CookEngine/cookengine.sh >> test.txt&');
+    sleep(10);
+    #echo exec('cat test.txt'); #only information in last line
+    $output = shell_exec('cat test.txt 2>&1');
+    echo "<pre>$output</pre>";
+    #echo shell_exec('cat test.txt')
     ?>
 </body>
 </html>

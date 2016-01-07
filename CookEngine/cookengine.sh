@@ -1,5 +1,12 @@
 ####Parameter###
-USER_FILE="../UI/Web/userresult.txt"
+USER_FILE="/home/ubuntu/workspace/UI/Web/userresult.txt"
+CookEngine="/home/ubuntu/workspace/CookEngine/"
+keepgoing_meat=1
+meat_number=1
+keepgoing_vegetable=1
+vegetable_number=2
+MEAT_TMP_FILE="find_maximum_in_meat.txt"
+VEGETABLE_TMP_FILE="find_maximum_in_vegetable.txt"
 
 ####Function####
 function getvaluefromuserresult(){
@@ -34,10 +41,14 @@ function updatedatafromuserresult(){
     carrot=$(getvaluefromuserresult "carrot")
     bambooshoot=$(getvaluefromuserresult "bambooshoot")
     cauliflower=$(getvaluefromuserresult "cauliflower")
-    showinfo
+    #showinfo
 }
 
-MEAT_TMP_FILE="find_maximum_in_meat.txt"
+REPEATCHOOSE_ADJUST_NUMBER=0.5
+function increaserepeatchoose(){
+    res=$(echo "$1 + $REPEATCHOOSE_ADJUST_NUMBER" | bc)
+    echo $res
+}
 function find_maximum_in_meat(){
     echo "$pork_weight" > $MEAT_TMP_FILE
     echo "$fish_weight" >> $MEAT_TMP_FILE
@@ -48,18 +59,22 @@ function find_maximum_in_meat(){
     case $maximum in
     "$pork_weight")
         pork=$(echo "$pork - 1" | bc)
+        pork_repeatchoose=`increaserepeatchoose $pork_repeatchoose`
         echo "煮豬肉"
     ;;
     "$fish_weight")
         fish=$(echo "$fish - 1" | bc)
+        fish_repeatchoose=`increaserepeatchoose $fish_repeatchoose`
         echo "煮魚肉"
     ;;
     "$chicken_weight")
         chicken=$(echo "$chicken - 1" | bc)
+        chicken_repeatchoose=`increaserepeatchoose $chicken_repeatchoose`
         echo "煮雞肉"
     ;;
     "$duck_weight")
         duck=$(echo "$duck - 1" | bc)
+        duck_repeatchoose=`increaserepeatchoose $duck_repeatchoose`
         echo "煮鴨肉"
     ;;
     esac
@@ -67,9 +82,9 @@ function find_maximum_in_meat(){
 
 function cookmeat(){
     find_maximum_in_meat
+    calcurateweight
 }
 
-VEGETABLE_TMP_FILE="find_maximum_in_vegetable.txt"
 function find_maximum_in_vegetable(){
     #echo "$LINENO"
     echo "$cabbage_weight" > $VEGETABLE_TMP_FILE
@@ -95,74 +110,92 @@ function find_maximum_in_vegetable(){
     case $maximum in
     "$cabbage_weight")
         cabbage=$(echo "$cabbage - 1" | bc)
+        cabbage_repeatchoose=`increaserepeatchoose $cabbage_repeatchoose`
         echo "煮高麗菜"
     ;;
     "$spinach_weight")
         spinach=$(echo "$spinach - 1" | bc)
+        spinach_repeatchoose=`increaserepeatchoose $spinach_repeatchoose`
         echo "煮菠菜"
     ;;
     "$chingchiang_weight")
         chingchiang=$(echo "$chingchiang - 1" | bc)
+        chingchiang_repeatchoose=`increaserepeatchoose $chingchiang_repeatchoose`
         echo "煮青江菜"
     ;;
     "$celery_weight")
         celery=$(echo "$celery - 1" | bc)
+        celery_repeatchoose=`increaserepeatchoose $celery_repeatchoose`
         echo "煮芹菜"
     ;;
     "$consin_weight")
         consin=$(echo "$consin - 1" | bc)
+        consin_repeatchoose=`increaserepeatchoose $consin_repeatchoose`
         echo "煮空心菜"
     ;;
     "$brassicarapapekinensis_weight")
         brassicarapapekinensis=$(echo "$brassicarapapekinensis - 1" | bc)
+        brassicarapapekinensis_repeatchoose=`increaserepeatchoose $brassicarapapekinensis_repeatchoose`
         echo "煮大白菜"
     ;;
     "$sweetpotatoleaves_weight")
         sweetpotatoleaves=$(echo "$sweetpotatoleaves - 1" | bc)
+        sweetpotatoleaves_repeatchoose=`increaserepeatchoose $sweetpotatoleaves_repeatchoose`
         echo "煮地瓜葉"
     ;;
     "$loofah_weight")
         loofah=$(echo "$loofah - 1" | bc)
+        loofah_repeatchoose=`increaserepeatchoose $loofah_repeatchoose`
         echo "煮絲瓜"
     ;;
     "$benincasapruriens_weight")
         benincasapruriens=$(echo "$benincasapruriens - 1" | bc)
+        benincasapruriens_repeatchoose=`increaserepeatchoose $benincasapruriens_repeatchoose`
         echo "煮冬瓜"
     ;;
     "$bitter_weight")
         bitter=$(echo "$bitter - 1" | bc)
+        bitter_repeatchoose=`increaserepeatchoose $bitter_repeatchoose`
         echo "煮苦瓜"
     ;;
     "$corn_weight")
         corn=$(echo "$corn - 1" | bc)
+        corn_repeatchoose=`increaserepeatchoose $corn_repeatchoose`
         echo "煮玉米"
     ;;
     "$okra_weight")
         okra=$(echo "$okra - 1" | bc)
+        okra_repeatchoose=`increaserepeatchoose $okra_repeatchoose`
         echo "煮秋葵"
     ;;
     "$youngcorn_weight")
         youngcorn=$(echo "$youngcorn - 1" | bc)
+        youngcorn_repeatchoose=`increaserepeatchoose $youngcorn_repeatchoose`
         echo "煮玉米筍"
     ;;
     "$radish_weight")
         radish=$(echo "$radish - 1" | bc)
+        radish_repeatchoose=`increaserepeatchoose $radish_repeatchoose`
         echo "煮蘿蔔"
     ;;
     "$potato_weight")
         potato=$(echo "$potato - 1" | bc)
+        potato_repeatchoose=`increaserepeatchoose $potato_repeatchoose`
         echo "煮馬鈴薯"
     ;;
     "$carrot_weight")
         carrot=$(echo "$carrot - 1" | bc)
+        carrot_repeatchoose=`increaserepeatchoose $carrot_repeatchoose`
         echo "煮紅蘿蔔"
     ;;
     "$bambooshoot_weight")
         bambooshoot=$(echo "$bambooshoot - 1" | bc)
+        bambooshoot_repeatchoose=`increaserepeatchoose $bambooshoot_repeatchoose`
         echo "煮竹筍"
     ;;
     "$cauliflower_weight")
         cauliflower=$(echo "$cauliflower - 1" | bc)
+        cauliflower_repeatchoose=`increaserepeatchoose $cauliflower_repeatchoose`
         echo "煮花椰菜"
     ;;
     #"$_weight")
@@ -174,6 +207,7 @@ function find_maximum_in_vegetable(){
 
 function cookvegetable(){
     find_maximum_in_vegetable
+    calcurateweight
 }
 
 function cookaialgo(){
@@ -252,69 +286,72 @@ function showweight(){
 }
 
 
-####################Initial##############################
-source priority_setting_decayrate.sh
-source priority_setting_favorite.sh
-source priority_setting_repeatchoose.sh
-#read value from userresult.txt
-pork=0
-fish=0
-chicken=0
-duck=0
-cabbage=0
-spinach=0
-chingchiang=0
-celery=0
-consin=0
-brassicarapapekinensis=0
-sweetpotatoleaves=0
-loofah=0
-benincasapruriens=0
-bitter=0
-corn=0
-okra=0
-youngcorn=0
-radish=0
-potato=0
-carrot=0
-bambooshoot=0
-cauliflower=0
-#weight
-pork_weight=0
-fish_weight=0
-chicken_weight=0
-duck_weight=0
-cabbage_weight=0
-spinach_weight=0
-chingchiang_weight=0
-celery_weight=0
-consin_weight=0
-brassicarapapekinensis_weight=0
-sweetpotatoleaves_weight=0
-loofah_weight=0
-benincasapruriens_weight=0
-bitter_weight=0
-corn_weight=0
-okra_weight=0
-youngcorn_weight=0
-radish_weight=0
-potato_weight=0
-carrot_weight=0
-bambooshoot_weight=0
-cauliflower_weight=0
+function Do_Init(){
+    source $CookEngine/priority_setting_decayrate.sh
+    source $CookEngine/priority_setting_favorite.sh
+    source $CookEngine/priority_setting_repeatchoose.sh
+    #read value from userresult.txt
+    pork=0
+    fish=0
+    chicken=0
+    duck=0
+    cabbage=0
+    spinach=0
+    chingchiang=0
+    celery=0
+    consin=0
+    brassicarapapekinensis=0
+    sweetpotatoleaves=0
+    loofah=0
+    benincasapruriens=0
+    bitter=0
+    corn=0
+    okra=0
+    youngcorn=0
+    radish=0
+    potato=0
+    carrot=0
+    bambooshoot=0
+    cauliflower=0
+    #weight
+    pork_weight=0
+    fish_weight=0
+    chicken_weight=0
+    duck_weight=0
+    cabbage_weight=0
+    spinach_weight=0
+    chingchiang_weight=0
+    celery_weight=0
+    consin_weight=0
+    brassicarapapekinensis_weight=0
+    sweetpotatoleaves_weight=0
+    loofah_weight=0
+    benincasapruriens_weight=0
+    bitter_weight=0
+    corn_weight=0
+    okra_weight=0
+    youngcorn_weight=0
+    radish_weight=0
+    potato_weight=0
+    carrot_weight=0
+    bambooshoot_weight=0
+    cauliflower_weight=0
 
-#get the information from user input seeting
-updatedatafromuserresult
+    #get the information from user input seeting
+    updatedatafromuserresult
+    calcurateweight
+    #showweight
+  
+}
 
-calcurateweight
 
-#showweight
+####################Start##############################
 
-keepgoing_meat=1
-meat_number=1
-keepgoing_vegetable=1
-vegetable_number=2
-while [ "$keepgoing" == "1" ] || [ "$keepgoing_vegetable" == "1" ]
+Do_Init
+
+Day=1
+Is_Lunch=1
+while [ "$keepgoing_meat" == "1" ] || [ "$keepgoing_vegetable" == "1" ]
 do
     #if [ $(echo "$pork <= 0" | bc) -eq 1 ] && [ $(echo "$fish <= 0" | bc) -eq 1 ] && [ $(echo "$chicken <= 0" | bc) -eq 1 ] && [ $(echo "$duck <= 0" | bc) -eq 1 ]; then
     #if [ $pork -eq 0 ] && [ $fish -eq 0 ] && [ $chicken -eq 0 ] && [ $duck -eq 0 ]; then
@@ -328,7 +365,23 @@ do
                 < $vegetable_number" | bc) -eq 1 ]; then #It mean we don't have any vegetable to cook
         keepgoing_vegetable=0
     fi
+    
+    if [ "$keepgoing_meat" == "0" ] && [ "$keepgoing_vegetable" == "0" ]; then
+       exit 0
+    fi
 
+    #date
+    if [ $Is_Lunch -eq 1 ]; then
+        echo "Day $Day"
+        echo "For 中餐"
+        Is_Lunch=0
+    else
+        echo "For 晚餐"
+        Is_Lunch=1
+        Day=`expr $Day + 1`
+    fi
+    
+    
     #one meat
     if [ $(echo "$pork + $fish + $chicken + $duck >= $meat_number" | bc) -eq 1 ]; then
         cookmeat
@@ -348,7 +401,6 @@ do
         done
     fi
 
-    calcurateweight
-    sleep 2
+    #sleep 2
     
 done
