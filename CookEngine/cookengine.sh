@@ -21,6 +21,7 @@ function updatedatafromuserresult(){
     #echo " is "$
     pork=$(getvaluefromuserresult "pork")
     fish=$(getvaluefromuserresult "fish")
+    beaf=$(getvaluefromuserresult "beaf")
     chicken=$(getvaluefromuserresult "chicken")
     duck=$(getvaluefromuserresult "duck")
     cabbage=$(getvaluefromuserresult "cabbage")
@@ -44,6 +45,9 @@ function updatedatafromuserresult(){
     #showinfo
 }
 
+function genehttplink(){
+    echo "<a href=\"https://icook.tw/recipes/search?q=$1\">$1</a>"
+}
 REPEATCHOOSE_ADJUST_NUMBER=0.5
 function increaserepeatchoose(){
     res=$(echo "$1 + $REPEATCHOOSE_ADJUST_NUMBER" | bc)
@@ -52,6 +56,7 @@ function increaserepeatchoose(){
 function find_maximum_in_meat(){
     echo "$pork_weight" > $MEAT_TMP_FILE
     echo "$fish_weight" >> $MEAT_TMP_FILE
+    echo "$beaf_weight" >> $MEAT_TMP_FILE
     echo "$chicken_weight" >> $MEAT_TMP_FILE
     echo "$duck_weight" >> $MEAT_TMP_FILE
     maximum=`cat $MEAT_TMP_FILE | sort -nr | head -1`
@@ -60,22 +65,32 @@ function find_maximum_in_meat(){
     "$pork_weight")
         pork=$(echo "$pork - 1" | bc)
         pork_repeatchoose=`increaserepeatchoose $pork_repeatchoose`
-        echo "煮豬肉"
+        #echo "煮豬肉"
+        genehttplink "豬肉"
     ;;
     "$fish_weight")
         fish=$(echo "$fish - 1" | bc)
         fish_repeatchoose=`increaserepeatchoose $fish_repeatchoose`
-        echo "煮魚肉"
+        #echo "煮魚肉"
+        genehttplink "魚肉"
+    ;;
+    "$beaf_weight")
+        beaf=$(echo "$beaf - 1" | bc)
+        beaf_repeatchoose=`increaserepeatchoose $beaf_repeatchoose`
+        #echo "煮牛肉"
+        genehttplink "牛肉"
     ;;
     "$chicken_weight")
         chicken=$(echo "$chicken - 1" | bc)
         chicken_repeatchoose=`increaserepeatchoose $chicken_repeatchoose`
-        echo "煮雞肉"
+        #echo "煮雞肉"
+        genehttplink "雞肉"
     ;;
     "$duck_weight")
         duck=$(echo "$duck - 1" | bc)
         duck_repeatchoose=`increaserepeatchoose $duck_repeatchoose`
-        echo "煮鴨肉"
+        #echo "煮鴨肉"
+        genehttplink "鴨肉"
     ;;
     esac
 }
@@ -111,92 +126,111 @@ function find_maximum_in_vegetable(){
     "$cabbage_weight")
         cabbage=$(echo "$cabbage - 1" | bc)
         cabbage_repeatchoose=`increaserepeatchoose $cabbage_repeatchoose`
-        echo "煮高麗菜"
+        #echo "煮高麗菜"
+        genehttplink "高麗菜"
+        
     ;;
     "$spinach_weight")
         spinach=$(echo "$spinach - 1" | bc)
         spinach_repeatchoose=`increaserepeatchoose $spinach_repeatchoose`
-        echo "煮菠菜"
+        #echo "煮菠菜"
+        genehttplink "菠菜"
     ;;
     "$chingchiang_weight")
         chingchiang=$(echo "$chingchiang - 1" | bc)
         chingchiang_repeatchoose=`increaserepeatchoose $chingchiang_repeatchoose`
-        echo "煮青江菜"
+        #echo "煮青江菜"
+        genehttplink "青江菜"
     ;;
     "$celery_weight")
         celery=$(echo "$celery - 1" | bc)
         celery_repeatchoose=`increaserepeatchoose $celery_repeatchoose`
-        echo "煮芹菜"
+        #echo "煮芹菜"
+        genehttplink "芹菜"
     ;;
     "$consin_weight")
         consin=$(echo "$consin - 1" | bc)
         consin_repeatchoose=`increaserepeatchoose $consin_repeatchoose`
-        echo "煮空心菜"
+        #echo "煮空心菜"
+        genehttplink "空心菜"
     ;;
     "$brassicarapapekinensis_weight")
         brassicarapapekinensis=$(echo "$brassicarapapekinensis - 1" | bc)
         brassicarapapekinensis_repeatchoose=`increaserepeatchoose $brassicarapapekinensis_repeatchoose`
-        echo "煮大白菜"
+        #echo "煮大白菜"
+        genehttplink "大白菜"
     ;;
     "$sweetpotatoleaves_weight")
         sweetpotatoleaves=$(echo "$sweetpotatoleaves - 1" | bc)
         sweetpotatoleaves_repeatchoose=`increaserepeatchoose $sweetpotatoleaves_repeatchoose`
-        echo "煮地瓜葉"
+        #echo "煮地瓜葉"
+        genehttplink "地瓜葉"
     ;;
     "$loofah_weight")
         loofah=$(echo "$loofah - 1" | bc)
         loofah_repeatchoose=`increaserepeatchoose $loofah_repeatchoose`
-        echo "煮絲瓜"
+        #echo "煮絲瓜"
+        genehttplink "絲瓜"
     ;;
     "$benincasapruriens_weight")
         benincasapruriens=$(echo "$benincasapruriens - 1" | bc)
         benincasapruriens_repeatchoose=`increaserepeatchoose $benincasapruriens_repeatchoose`
-        echo "煮冬瓜"
+        #echo "煮冬瓜"
+        genehttplink "冬瓜"
     ;;
     "$bitter_weight")
         bitter=$(echo "$bitter - 1" | bc)
         bitter_repeatchoose=`increaserepeatchoose $bitter_repeatchoose`
-        echo "煮苦瓜"
+        #echo "煮苦瓜"
+        genehttplink 苦瓜
     ;;
     "$corn_weight")
         corn=$(echo "$corn - 1" | bc)
         corn_repeatchoose=`increaserepeatchoose $corn_repeatchoose`
-        echo "煮玉米"
+        #echo "煮玉米"
+        genehttplink "玉米"
     ;;
     "$okra_weight")
         okra=$(echo "$okra - 1" | bc)
         okra_repeatchoose=`increaserepeatchoose $okra_repeatchoose`
-        echo "煮秋葵"
+        #echo "煮秋葵"
+        genehttplink "秋葵"
     ;;
     "$youngcorn_weight")
         youngcorn=$(echo "$youngcorn - 1" | bc)
         youngcorn_repeatchoose=`increaserepeatchoose $youngcorn_repeatchoose`
-        echo "煮玉米筍"
+        #echo "煮玉米筍"
+        genehttplink "玉米筍"
     ;;
     "$radish_weight")
         radish=$(echo "$radish - 1" | bc)
         radish_repeatchoose=`increaserepeatchoose $radish_repeatchoose`
-        echo "煮蘿蔔"
+        #echo "煮蘿蔔"
+        genehttplink "蘿蔔"
     ;;
     "$potato_weight")
         potato=$(echo "$potato - 1" | bc)
         potato_repeatchoose=`increaserepeatchoose $potato_repeatchoose`
-        echo "煮馬鈴薯"
+        #echo "煮馬鈴薯"
+        genehttplink "馬鈴薯"
     ;;
     "$carrot_weight")
         carrot=$(echo "$carrot - 1" | bc)
         carrot_repeatchoose=`increaserepeatchoose $carrot_repeatchoose`
-        echo "煮紅蘿蔔"
+        #echo "煮紅蘿蔔"
+        genehttplink "紅蘿蔔"
     ;;
     "$bambooshoot_weight")
         bambooshoot=$(echo "$bambooshoot - 1" | bc)
         bambooshoot_repeatchoose=`increaserepeatchoose $bambooshoot_repeatchoose`
-        echo "煮竹筍"
+        #echo "煮竹筍"
+        genehttplink "竹筍"
     ;;
     "$cauliflower_weight")
         cauliflower=$(echo "$cauliflower - 1" | bc)
         cauliflower_repeatchoose=`increaserepeatchoose $cauliflower_repeatchoose`
-        echo "煮花椰菜"
+        #echo "煮花椰菜"
+        genehttplink "花椰菜"
     ;;
     #"$_weight")
     #    =$(echo "$ - 1" | bc)
@@ -224,6 +258,7 @@ function calcurateweight(){
 
     pork_weight=$(cookaialgo $pork_decayrate $pork_favorite $pork_repeatchoose $pork)
     fish_weight=$(cookaialgo $fish_decayrate $fish_favorite $fish_repeatchoose $fish)
+    beaf_weight=$(cookaialgo $beaf_decayrate $beaf_favorite $beaf_repeatchoose $beaf)
     chicken_weight=$(cookaialgo $chicken_decayrate $chicken_favorite $chicken_repeatchoose $chicken)
     duck_weight=$(cookaialgo $duck_decayrate $duck_favorite $duck_repeatchoose $duck)
     cabbage_weight=$(cookaialgo $cabbage_decayrate $cabbage_favorite $cabbage_repeatchoose $cabbage)
@@ -247,7 +282,7 @@ function calcurateweight(){
 }
 
 function showmeat(){
-    echo "pork="$pork",fish="$fish",chicken="$chicken",duck="$duck
+    echo "pork="$pork",fish="$fish",beaf="$beaf",chicken="$chicken",duck="$duck
 }
 function showvegetable(){
     echo "cabbage="$cabbage",spinach="$spinach",chingchiang="$chingchiang",celery="$celery",consin="$consin
@@ -263,6 +298,7 @@ function showinfo(){
 function showweight(){
     echo "The weight of pork is "$pork_weight
     echo "The weight of fish is "$fish_weight
+    echo "The weight of beaf is "$beaf_weight
     echo "The weight of chicken is "$chicken_weight
     echo "The weight of duck is "$duck_weight
     echo "The weight of cabbage is "$cabbage_weight
@@ -293,6 +329,7 @@ function Do_Init(){
     #read value from userresult.txt
     pork=0
     fish=0
+    beaf=0
     chicken=0
     duck=0
     cabbage=0
@@ -316,6 +353,7 @@ function Do_Init(){
     #weight
     pork_weight=0
     fish_weight=0
+    beaf_weight=0
     chicken_weight=0
     duck_weight=0
     cabbage_weight=0
@@ -351,11 +389,13 @@ Do_Init
 
 Day=1
 Is_Lunch=1
+echo "<table border=\"1\" style=\"width:100%\">"
+echo "<tr><td>天數</td><td>中餐</td><td>晚餐</td></tr>"
 while [ "$keepgoing_meat" == "1" ] || [ "$keepgoing_vegetable" == "1" ]
 do
     #if [ $(echo "$pork <= 0" | bc) -eq 1 ] && [ $(echo "$fish <= 0" | bc) -eq 1 ] && [ $(echo "$chicken <= 0" | bc) -eq 1 ] && [ $(echo "$duck <= 0" | bc) -eq 1 ]; then
     #if [ $pork -eq 0 ] && [ $fish -eq 0 ] && [ $chicken -eq 0 ] && [ $duck -eq 0 ]; then
-    if [ $(echo "$pork + $fish + $chicken + $duck < $meat_number" | bc) -eq 1 ]; then #It mean we don't have any meat to cook
+    if [ $(echo "$pork + $fish + $beaf + $chicken + $duck < $meat_number" | bc) -eq 1 ]; then #It mean we don't have any meat to cook
         keepgoing_meat=0
     fi
     if [ $(echo "$cabbage + $spinach + $chingchiang + $celery + $consin \
@@ -367,23 +407,26 @@ do
     fi
     
     if [ "$keepgoing_meat" == "0" ] && [ "$keepgoing_vegetable" == "0" ]; then
+       echo "</table>"
        exit 0
     fi
 
     #date
     if [ $Is_Lunch -eq 1 ]; then
-        echo "Day $Day"
-        echo "For 中餐"
+        echo "<tr><td>"
+        echo "第$Day天"
+        echo "</td>"
+        #echo "中餐"
         Is_Lunch=0
     else
-        echo "For 晚餐"
+        #echo "For 晚餐"
         Is_Lunch=1
         Day=`expr $Day + 1`
     fi
     
-    
+    echo "<td>"
     #one meat
-    if [ $(echo "$pork + $fish + $chicken + $duck >= $meat_number" | bc) -eq 1 ]; then
+    if [ $(echo "$pork + $fish + $beaf + $chicken + $duck >= $meat_number" | bc) -eq 1 ]; then
         cookmeat
         #showmeat
     fi
@@ -400,7 +443,13 @@ do
             #showvegetable
         done
     fi
-
+    echo "</td>"
+    
+    if [ $Is_Lunch -eq 1 ]; then
+        echo "</tr>"
+    fi
     #sleep 2
     
 done
+
+echo "</table>"

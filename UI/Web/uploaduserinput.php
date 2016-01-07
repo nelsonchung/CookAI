@@ -3,6 +3,7 @@
     <!--
     <?php echo $_POST["pork"]; ?><br>
     <?php echo $_POST["fish"]; ?><br>
+    <?php echo $_POST["beaf"]; ?><br>
     <?php echo $_POST["chicken"]; ?><br>
     <?php echo $_POST["duck"]; ?><br>
     <?php echo $_POST["cabbage"]; ?><br>
@@ -29,6 +30,7 @@
         $userresult = 'userresult.txt';
         $list = $_POST["pork"]."\n";
         $list = $list.$_POST["fish"]."\n";
+        $list = $list.$_POST["beaf"]."\n";
         $list = $list.$_POST["chicken"]."\n";
         $list = $list.$_POST["duck"]."\n";
         $list = $list.$_POST["cabbage"]."\n";
@@ -53,10 +55,10 @@
     ?>
     <?php
     shell_exec('rm test.txt');
-    shell_exec('bash /home/ubuntu/workspace/CookEngine/cookengine.sh >> test.txt&');
+    shell_exec('bash /home/ubuntu/workspace/CookEngine/cookengine.sh >> test.txt');
     sleep(10);
     #echo exec('cat test.txt'); #only information in last line
-    $output = shell_exec('cat test.txt 2>&1');
+    $output = shell_exec('cat test.txt');
     echo "<pre>$output</pre>";
     #echo shell_exec('cat test.txt')
     ?>

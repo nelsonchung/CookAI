@@ -3,6 +3,8 @@
 pork_repeatchoose=0.1
 #魚肉
 fish_repeatchoose=0.1
+#牛肉
+beaf_repeatchoose=0.1
 #雞肉
 chicken_repeatchoose=0.1
 #鴨肉

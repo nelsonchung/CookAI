@@ -3,6 +3,8 @@
 pork_decayrate=0
 #魚肉
 fish_decayrate=0.3
+#牛肉
+beaf_decayrate=0.2
 #雞肉
 chicken_decayrate=0.1
 #鴨肉

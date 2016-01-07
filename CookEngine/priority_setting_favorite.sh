@@ -3,6 +3,8 @@
 pork_favorite=0.8
 #魚肉
 fish_favorite=0.6
+#牛肉
+beaf_favorite=0.8
 #雞肉
 chicken_favorite=0.2
 #鴨肉
