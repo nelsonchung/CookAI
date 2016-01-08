@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <meta http-equiv="refresh" content="1;url=https://cookai-nelsonchung.c9users.io/UI/Web/showresult.php" />
+    </head>
 <body>
     <?php
         $userresult = 'userresult.txt';
@@ -31,13 +34,25 @@
         header("Content-Type:text/html; charset=utf-8");
     ?> 
     <?php
-    shell_exec('rm test.txt');
-    shell_exec('bash /home/ubuntu/workspace/CookEngine/cookengine.sh >> test.txt');
-    sleep(7);
-    #echo exec('cat test.txt'); #only information in last line
-    $output = shell_exec('cat test.txt');
-    echo "<pre>$output</pre>";
-    #echo shell_exec('cat test.txt')
+        shell_exec('rm test.txt');
+        shell_exec('bash /home/ubuntu/workspace/CookEngine/cookengine.sh >> test.txt&');
     ?>
+    
+    <?php
+		echo '系統運算中';
+
+        $wait_time=10;
+        for ($i = 0; $i < $wait_time; $i++) {
+            echo "..........";
+            flush();
+            ob_flush();
+            sleep(1);
+        }
+        echo "<br>準備產生建議清單";
+        flush();
+        ob_flush();
+    ?>
+    
+
 </body>
 </html>
